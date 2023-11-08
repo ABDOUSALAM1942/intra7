@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="conteneur">
+        <div class="sidebar">
+            <img src="images/logo_env.png" alt="">
+            <ul>
+                <li style="list-style-type: none;">
+                    <a href="Dashboard.html"><i class="fa-solid fa-chart-simple"></i><span> &nbsp Dashboard</span></a>
+                </li>
+                <br>
+                <li style="list-style-type: none;">
+                    <a href="facture.html"><i class="fa-solid fa-peace"></i><span> &nbsp Facture</span></a>
+                </li>
+                <br>
+                <li style="list-style-type: none;">
+                    <a href="commande.html"><i class="fa-solid fa-cart-shopping"></i><span>&nbsp Commande</span></a>
+                </li>
+                <br>
+                <li class="active" style="list-style-type: none;">
+                    <a href="suivi.html"><i class="fa-solid fa-bag-shopping"></i><span> &nbsp Suivi</span></a>
+                </li>
+                <br>
+                <li style="list-style-type: none;">
+                    <a href="serviceClient.html"><i class="fa-solid fa-comment-dots"></i> <span>&nbsp Service
+                            Client</span></a>
+                </li>
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+                <li style="list-style-type: none;">
+                    <a href="compte.html"><i class="fa-solid fa-gear"></i><span> &nbsp Paramètres compte</span></a>
+                </li>
+                <br>
+                <li style="list-style-type: none;">
+                    <a href="index.html"> <i class="fa-solid fa-arrow-right-from-bracket"></i><span> &nbsp
+                            Déconnexion</span></a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- navbar et chart -->
+        <div class="navchart">
+            <div class="navbar">
+                <div class="notif">
+                    <img src="images/notificatin.jpg" alt="">
+                </div>
+                <div class="B">
+                    <div id="ptitprof-container" class="circle-image">
+                        <img id="ptitprof" src="images/b.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="suiv">
+                <table class="table3">
+                    <thead>
+                        <tr>
+                            <th colspan="5" style="text-align: center;">Suivi des
+                                échantillons</th>
+                        </tr>
+                        <tr>
+                            <th colspan="5" style="text-align: center;">
+                                <!-- Suppression de l'id "hautsuivi" -->
+                                <input type="search" name="search" id="search" placeholder="&#128269; Rechercher...">
+                            </th>
+                        </tr>
+                        <tr id="entete1">
+                            <th class="sortable-header">Lot <i class="fa-solid fa-arrow-up-z-a" style="color: blue;"></i></th>
+                            <th class="sortable-header">État <i class="fa-solid fa-arrow-up-z-a" style="color: blue;"></i></th>
+                            <th class="sortable-header">Date prévue <i class="fa-solid fa-arrow-up-z-a" style="color: blue;"></i></th>
+                            <th class="sortable-header">Rapport</th>
+                            <th class="bordered">Cliquez pour voir le rapport</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>TE202303001</td>
+                            <td>Réçu</td>
+                            <td>12/03/2023</td>
+                            <td>Disponible</td>
+                            <td class="bordered"><button class="btvoir" name="button" type="button"
+                                    style="background-color: #008080; border: none; width: 5rem;height: 2rem;border-radius: 5px;"><a
+                                        href="suividetaille.html?titre=TE202303001"
+                                        style="color: white;"><b>Voir</b></a></button> </td>
+                        </tr>
+                        <tr>
+                            <td>E202302023</td>
+                            <td>Non Réçu</td>
+                            <td>12/03/2023</td>
+                            <td>Non disponible</td>
+                            <td class="bordered"><button class="btvoir" name="button" type="button"
+                                    style="background-color: #008080; border: none; width: 5rem;height: 2rem;border-radius: 5px;"><a
+                                        href="suividetaille.html?titre=E202302023"
+                                        style="color: white;"><b>Voir</b></a></button> </td>
+                        </tr>
+                        <tr>
+                            <td>TE20230190</td>
+                            <td>Réçu</td>
+                            <td>14/03/2023</td>
+                            <td>Non disponible</td>
+                            <td class="bordered"><button class="btvoir" name="button" type="button"
+                            style="background-color: #008080; border: none; width: 5rem;height: 2rem;border-radius:
+                            5px;"><a href="suividetaille.html?titre=TE20230190"
+                                style="color: white;"><b>Voir</b></a></button> </td>
+                        </tr>
+                        <tr>
+                            <td>Carbonate</td>
+                            <td>Réçu</td>
+                            <td>14/03/2023</td>
+                            <td>Disponible</td>
+                            <td class="bordered"><button class="btvoir" name="button" type="button"
+                            style="background-color: #008080; border: none; width: 5rem;height: 2rem;border-radius:
+                            5px;"><a href="suividetaille.html?titre=Carbonate"
+                                style="color: white;"><b>Voir</b></a></button> </td>
+                        </tr>
+                        <tr>
+                            <td>Chlorure</td>
+                            <td>Non Réçu</td>
+                            <td>15/03/2023</td>
+                            <td>Non disponible</td>
+                            <td class="bordered"><button class="btvoir" name="button" type="button"
+                            style="background-color: #008080; border: none; width: 5rem;height: 2rem;border-radius:
+                            5px;"><a href="suividetaille.html?titre=Chlorure"
+                                style="color: white;"><b>Voir</b></a></button> </td>
+                        </tr>
+                        <tr>
+                            <td>CO2 libre</td>
+                            <td>Réçu</td>
+                            <td>15/03/2023</td>
+                            <td>Disponible</td>
+                            <td class="bordered"><button class="btvoir" name="button" type="button"
+                            style="background-color: #008080; border: none; width: 5rem;height: 2rem;border-radius:
+                            5px;"><a href="suividetaille.html?titre=CO2 libre"
+                                style="color: white;"><b>Voir</b></a></button> </td>
+                        </tr>
+                        <tr>
+                            <td>Conductivité electrique</td>
+                            <td>Non Réçu</td>
+                            <td>15/03/2023</td>
+                            <td>Non disponible</td>
+                            <td class="bordered"><button class="btvoir" name="button" type="button"
+                            style="background-color: #008080; border: none; width: 5rem;height: 2rem;border-radius:
+                            5px;"><a href="suividetaille.html?titre=Conductivité electrique"
+                                style="color: white;"><b>Voir</b></a></button> </td>
+                        </tr>
+                        <tr>
+                            <td>рН/Temperature</td>
+                            <td>Réçu</td>
+                            <td>16/03/2023</td>
+                            <td>Disponible</td>
+                            <td class="bordered"><button class="btvoir" name="button" type="button"
+                            style="background-color: #008080; border: none; width: 5rem;height: 2rem;border-radius:
+                            5px;"><a href="suividetaille.html?titre=ph/Temperature"
+                                style="color: white;"><b>Voir</b></a></button> </td>
+                        </tr>
+                        <tr>
+                            <td>Couleur Brute</td>
+                            <td>Réçu</td>
+                            <td>17/03/2023</td>
+                            <td>Non disponible</td>
+                                                        <td class="bordered"><button class="btvoir" name="button" type="button"
+                            style="background-color: #008080; border: none; width: 5rem;height: 2rem;border-radius:
+                            5px;"><a href="suividetaille.html?titre=Couleur Brute"
+                                style="color: white;"><b>Voir</b></a></button> </td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Cyanure libre</td>
+                            <td>Réçu</td>
+                            <td>20/03/2023</td>
+                            <td>Disponible</td>
+                                                        <td class="bordered"><button class="btvoir" name="button" type="button"
+                            style="background-color: #008080; border: none; width: 5rem;height: 2rem;border-radius:
+                            5px;"><a href="suividetaille.html?titre=Cyanure libre"
+                                style="color: white;"><b>Voir</b></a></button> </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+        </div>
+
+    </div>
+    <script src="suivi.js"></script>
+    <script src="compte.js"></script>
+</body>
+
+</html>

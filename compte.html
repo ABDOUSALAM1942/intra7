@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="conteneur">
+        <div class="sidebar">
+            <img src="images/logo_env.png" alt="">
+            <ul>
+                <li style="list-style-type: none;">
+                    <a href="Dashboard.html"><i class="fa-solid fa-chart-simple"></i><span> &nbsp Dashboard</span></a>
+                </li>
+                <br>
+                <li style="list-style-type: none;">
+                    <a href="facture.html"><i class="fa-solid fa-peace"></i><span> &nbsp Facture</span></a>
+                </li>
+                <br>
+                <li style="list-style-type: none;">
+                    <a href="commande.html"><i class="fa-solid fa-cart-shopping"></i><span>&nbsp Commande</span></a>
+                </li>
+                <br>
+                <li class="active" style="list-style-type: none;">
+                    <a href="suivi.html"><i class="fa-solid fa-bag-shopping"></i><span> &nbsp Suivi</span></a>
+                </li>
+                <br>
+                <li style="list-style-type: none;">
+                    <a href="serviceClient.html"><i class="fa-solid fa-comment-dots"></i> <span>&nbsp Service
+                            Client</span></a>
+                </li>
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+                <li style="list-style-type: none;">
+                    <a href="compte.html"><i class="fa-solid fa-gear"></i><span> &nbsp Paramètres compte</span></a>
+                </li>
+                <br>
+                <li style="list-style-type: none;">
+                    <a href="index.html" id="deconnexionButton"> <i class="fa-solid fa-arrow-right-from-bracket"></i><span> &nbsp
+                            Déconnexion</span></a>
+                </li>
+
+            </ul>
+        </div>
+        <!-- navbar et chart -->
+        <div class="navchart">
+            <div class="navbar">
+                <div class="notif">
+                    <img src="images/notificatin.jpg" alt="">
+                </div>
+                <div class="B">
+                    <div id="ptitprof-container" class="circle-image">
+                        <img id="ptitprof" src="images/b.png" alt="">
+                    </div>
+                </div>
+            </div>
+            <div class="cpte">
+                <h3 id="titre">Paramètre du Compte</h3>
+                <div class="3BTN">
+                    <button class="retour"><i class="fa fa-arrow-left" id="ret" aria-hidden="true"></i> <a
+                            href="Dashboard.html">Retour au tableau de bord</a></button>
+                            <button class="mmdp"><a href="">Modifier le mot de passe</a></button>
+                            <button class="supco"><a href="">Supprimer le compte</a></button>
+                </div>
+                <div class="prof">
+                    <h3 id="modpro">Modifier le profil</h3>
+                    <div class="inp">
+                        <label for="name">
+                            <input type="text" placeholder="Nom" id="nomprof" name="name" dirname="fruit-dir" />
+                            <input type="email" placeholder="Email" id="email" name="email" dirname="fruit-dir" />
+                            <textarea id="bio" rows="4" cols="50"></textarea>
+                        </label>
+                        <button class="subm" id="enregistrer"><a href="">Envoyer</a></button>
+                    </div>
+                    <div class="imgprof">
+                        <h3 id="avatar">Ton Avatar</h3>
+                        <img src="./images/prof.jpeg" alt="" class="imgavat">
+                        <div class="btphot">
+                            <!-- Bouton pour modifier le mot de passe -->
+                            <button class="mph"><a href="#">Modifier la photo</a></button>
+                            <label for="photoInput"></label>
+                            <input type="file" id="photoInput" accept="image/*" style="display: none;">
+                            <button class="supph">Supprimer la photo</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- La fenêtre modale -->
+                <div id="modal" class="modal">
+                    <div class="modal-content">
+                        <span class="close" id="close-modal">&times;</span>
+                        <h2>Modifier le mot de passe</h2>
+                        <label for="ancienMotDePasse">Ancien mot de passe:</label>
+                        <input type="password" id="ancienMotDePasse">
+                        <label for="nouveauMotDePasse">Nouveau mot de passe:</label>
+                        <input type="password" id="nouveauMotDePasse">
+                        <button id="modifierMotDePasse">Modifier</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <script src="compte.js"></script>
+        <script src="index.js"></script>
+</body>
+
+</html>
