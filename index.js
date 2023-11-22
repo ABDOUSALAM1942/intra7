@@ -58,13 +58,10 @@ document.addEventListener("DOMContentLoaded", () => {
 function afficherModal() {
     const modal = document.getElementById('myModal');
     modal.style.display = 'block';
-
     // Compteur de temps (3 minutes)
     const dureeBlocageMinutes = 0.1;
     let tempsRestant = dureeBlocageMinutes * 60; // Convertir en secondes
-
     const countdown = document.getElementById('countdown');
-
     function miseAjourCompteur() {
         const minutes = Math.floor(tempsRestant / 60);
         const secondes = tempsRestant % 60;
@@ -92,41 +89,3 @@ document.addEventListener("DOMContentLoaded", function() {
         afficherModal();
     }
 });
-// // Fonction pour afficher la fenêtre modale
-// function afficherModal() {
-//     var modal = document.getElementById('myModal');
-//     modal.style.display = 'block';
-
-//     // Compteur de temps (3 minutes)
-//     var dureeBlocageMinutes = 3;
-//     var tempsRestant = dureeBlocageMinutes * 60; // Convertir en secondes
-
-//     var countdown = document.getElementById('countdown');
-
-//     function miseAjourCompteur() {
-//         var minutes = Math.floor(tempsRestant / 60);
-//         var secondes = tempsRestant % 60;
-
-//         countdown.innerHTML = minutes + 'm ' + secondes + 's';
-
-//         if (tempsRestant <= 0) {
-//             modal.style.display = 'none'; // Fermer la fenêtre modale une fois le délai écoulé
-//         } else {
-//             tempsRestant--;
-//             localStorage.setItem('tempsRestant', tempsRestant); // Enregistrer le temps restant dans le localStorage
-//             setTimeout(miseAjourCompteur, 1000); // Mettre à jour le compteur chaque seconde
-//         }
-//     }
-
-//     miseAjourCompteur();
-// }
-
-// document.addEventListener("DOMContentLoaded", function() {
-//     // Récupérer le temps restant depuis le localStorage
-//     var tempsRestant = parseInt(localStorage.getItem('tempsRestant'));
-
-//     if (tempsRestant && tempsRestant > 0) {
-//         // Si le temps restant est stocké et est supérieur à zéro, afficher la fenêtre modale
-//         afficherModal();
-//     }
-// });
