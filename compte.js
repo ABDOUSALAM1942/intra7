@@ -3,41 +3,13 @@ var nomInput = document.getElementById('nomprof');
 var emailInput = document.getElementById('email');
 var bioTextarea = document.getElementById('bio');
 
-// Écouter un événement, par exemple, un clic sur un bouton pour sauvegarder les données
-var boutonEnregistrer = document.getElementById('enregistrer');
-boutonEnregistrer.addEventListener('click', function() {
-    // Récupérer les valeurs des inputs
-    var nom = nomInput.value;
-    var email = emailInput.value;
-    var bio = bioTextarea.value;
 
-    // Stocker les données dans le local storage
-    localStorage.setItem('nom', nom);
-    localStorage.setItem('email', email);
-    localStorage.setItem('bio', bio);
-});
 
-// Charger les données depuis le local storage lorsque la page se charge
-window.addEventListener('load', function() {
-    var nom = localStorage.getItem('nom');
-    var email = localStorage.getItem('email');
-    var bio = localStorage.getItem('bio');
-
-    // Remplir les champs avec les données du local storage
-    nomInput.value = nom;
-    emailInput.value = email;
-    bioTextarea.value = bio;
-});
 
 // modifier
 
-// Récupérez l'élément du champ d'entrée de fichier
 var photoInput = document.getElementById('photoInput');
-
-// Récupérez le bouton "Modifier la photo"
 var modifierPhotoButton = document.querySelector('.mph');
-
-// Récupérez l'élément img d'ID "imgavat" et l'élément img d'ID "ptitprof"
 var imgAvatar = document.querySelector('.imgavat');
 var ptitprofImg = document.getElementById('ptitprof');
 
@@ -55,25 +27,20 @@ imgAvatar.src = savedAvatarURL;
 
 // Ajoutez un gestionnaire d'événement pour le clic sur le bouton "Modifier la photo"
 modifierPhotoButton.addEventListener('click', function(e) {
-    // Empêchez le comportement par défaut du lien
     e.preventDefault();
-
     // Simulez un clic sur le champ d'entrée de fichier lorsque le bouton est cliqué
     photoInput.click();
 });
 // Ajoutez un gestionnaire d'événement pour le changement de fichier
 photoInput.addEventListener('change', function() {
     var selectedFile = photoInput.files[0];
-
     // Vérifiez si un fichier a été sélectionné
     if (selectedFile) {
         // Créez un objet URL pour afficher l'image sélectionnée
         var objectURL = URL.createObjectURL(selectedFile);
-
         // Affichez l'image dans les éléments "ptitprof" et "imgavat"
         ptitprofImg.src = objectURL;
         imgAvatar.src = objectURL;
-
         // Enregistrez l'URL de la nouvelle image dans le localStorage
         localStorage.setItem('avatarURL', objectURL);
     }
@@ -111,7 +78,6 @@ modifierMotDePasseButton.addEventListener('click', function() {
     // Récupérez les valeurs des champs de saisie
     var ancienMotDePasse = ancienMotDePasseInput.value;
     var nouveauMotDePasse = nouveauMotDePasseInput.value;
-
     // Récupérez l'utilisateur actuellement connecté
     var currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
@@ -131,7 +97,6 @@ modifierMotDePasseButton.addEventListener('click', function() {
 
             // Affichez un message de succès
             alert("Le mot de passe a été modifié avec succès.");
-
             // Réinitialisez les champs de saisie
             ancienMotDePasseInput.value = "";
             nouveauMotDePasseInput.value = "";
@@ -158,6 +123,39 @@ var deconnexionButton = document.getElementById('deconnexionButton');
 deconnexionButton.addEventListener('click', function() {
     deconnecterUtilisateur();
 });
+
+
+// formulaire 
+
+
+// Écouter un événement, par exemple, un clic sur un bouton pour sauvegarder les données
+// var boutonEnregistrer = document.getElementById('enregistrer');
+// boutonEnregistrer.addEventListener('click', function() {
+//     // Récupérer les valeurs des inputs
+//     var nom = nomInput.value;
+//     var email = emailInput.value;
+//     var bio = bioTextarea.value;
+
+//     // Stocker les données dans le local storage
+//     localStorage.setItem('nom', nom);
+//     localStorage.setItem('email', email);
+//     localStorage.setItem('bio', bio);
+// });
+
+
+// // Charger les données depuis le local storage lorsque la page se charge
+// window.addEventListener('load', function() {
+//     var nom = localStorage.getItem('nom');
+//     var email = localStorage.getItem('email');
+//     var bio = localStorage.getItem('bio');
+
+//     // Remplir les champs avec les données du local storage
+//     nomInput.value = nom;
+//     emailInput.value = email;
+//     bioTextarea.value = bio;
+// });
+
+// fin formulaire
 
 
 

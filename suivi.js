@@ -51,11 +51,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Récupérez les en-têtes de colonnes avec la classe "sortable-header"
     var headers = table.querySelectorAll("thead th.sortable-header");
-
-    // Récupérez le corps de la table (tbody)
     var tbody = table.querySelector("tbody");
 
     // Convertissez les lignes de tbody en un tableau
+    // Array.from(...): Cela convertit la NodeList en un tableau réel
     var rows = Array.from(tbody.querySelectorAll("tr"));
 
     // Initialisez un tableau pour suivre l'ordre de tri de chaque colonne

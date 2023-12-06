@@ -27,10 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
             rows.sort(function (a, b) {
                 var cellA = a.querySelectorAll("td")[index].textContent.trim();
                 var cellB = b.querySelectorAll("td")[index].textContent.trim();
-                if (index === 2 || index === 3) { // Colonne "Date" ou "Statut"
-                    cellA = new Date(cellA);
-                    cellB = new Date(cellB);
-                }
+                // if (index === 2 || index === 3) { // Colonne "Date" ou "Statut"
+                //     cellA = new Date(cellA);
+                //     cellB = new Date(cellB);
+                // }
                 return sortOrders[index] * cellA.localeCompare(cellB);
             });
 

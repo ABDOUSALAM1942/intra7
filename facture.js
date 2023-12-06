@@ -1,11 +1,18 @@
+// Attendez que le document HTML soit entièrement chargé avant d'exécuter le script
 document.addEventListener("DOMContentLoaded", function () {
     var table = document.querySelector(".table1");
     var tbody = table.querySelector("tbody");
+
+    // Créez un tableau à partir des lignes de tbody
+    // Array.from(...): convertit la NodeList en un tableau réel
     var rows = Array.from(tbody.querySelectorAll("tr"));
     var headers = table.querySelectorAll("th.sortable-header");
+    // Initialisez un tableau d'ordres de tri pour chaque colonne
     var sortOrders = Array.from(headers).map(function () {
         return -1;
     });
+    // la variable sortOrders est un tableau.
+    // chaque élément de ce tableau est initialisé à -1.
 
     // Ajoutez un gestionnaire de clic aux en-têtes de colonnes
     headers.forEach(function (header, index) {
@@ -25,9 +32,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
             // Triez les lignes en fonction de la colonne et de l'ordre de tri
             rows.sort(function (a, b) {
+                // Sélectionnez le contenu textuel des cellules de la colonne spécifiée
                 var cellA = a.querySelectorAll("td")[index].textContent.trim();
                 var cellB = b.querySelectorAll("td")[index].textContent.trim();
+                // Utilisez localeCompare pour comparer les chaînes de caractères de manière alphabétique
+                // et multipliez par sortOrders[index] pour prendre en compte l'ordre de tri (ascendant ou descendant)
                 return sortOrders[index] * cellA.localeCompare(cellB);
+
             });
 
             // Supprimez toutes les lignes du tbody
@@ -42,7 +53,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     });
 
-    // inputrech
+    // Gestionnaire d'événement pour la recherche
     var searchInput = document.getElementById("search");
 
     searchInput.addEventListener("input", function () {
@@ -59,10 +70,12 @@ document.addEventListener("DOMContentLoaded", function () {
                     break;
                 }
             }
+            // Affichez ou masquez la ligne en fonction du résultat de la recherche
             row.style.display = found ? "table-row" : "none";
         });
     });
 });
+
 
 
 var ptitprofImg = document.getElementById('ptitprof');
