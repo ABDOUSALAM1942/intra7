@@ -1,8 +1,8 @@
 // Tableau de faux utilisateurs avec des informations simulées
 const users = [
-    { email: "yatagan1942@gmail.com", password: "aaaa" },
-    { email: "yatagan2523@yahoo.com", password: "bbbb" },
-    { email: "yatagan1234@dotnet.com", password: "cccc" },
+    { email: "yatagan1942@gmail.com", password: "aaaa", deleted: false },
+    { email: "yatagan2523@yahoo.com", password: "bbbb", deleted: false },
+    { email: "yatagan1234@dotnet.com", password: "cccc", deleted: false },
 ];
 
 // Compteur d'échecs de connexion
@@ -21,6 +21,12 @@ function login(event) {
     const user = users.find((u) => u.email === enteredEmail && u.password === enteredPassword);
 
     if (user) {
+        // Vérifier si l'utilisateur a supprimé son compte
+        if (user.deleted) {
+            errorMessage.textContent = "Ce compte a été supprimé. Veuillez créer un nouveau compte.";
+            return;
+        }
+
         // Réinitialiser le compteur d'échecs de connexion en cas de succès
         loginAttempts = 0;
         localStorage.removeItem('loginAttempts');
@@ -31,7 +37,7 @@ function login(event) {
         loginAttempts++;
 
         if (loginAttempts >= 3) {
-            // Afficher la question secrète en alerte avant le démarrage du compte à rebours
+            // Vérifier si l'utilisateur a répondu correctement à la question secrète
             const userAnswer = prompt(secretQuestion);
             if (checkSecretAnswer(userAnswer)) {
                 // Si la réponse est correcte, réinitialiser le compteur et rediriger vers Dashboard.html
@@ -58,8 +64,6 @@ function checkSecretAnswer(answer) {
 // Écouteur d'événements pour le bouton de connexion
 const loginButton = document.querySelector(".btnL");
 loginButton.addEventListener("click", login);
-
-
 
 // Fonction pour afficher la fenêtre modale
 function afficherModal() {
@@ -95,12 +99,3 @@ document.addEventListener("DOMContentLoaded", function() {
         afficherModal();
     }
 });
-
-// // Charger les utilisateurs depuis le localStorage lors du chargement de la page
-// document.addEventListener("DOMContentLoaded", () => {
-//     const storedUser = localStorage.getItem('currentUser');
-//     if (storedUser) {
-//         const user = JSON.parse(storedUser);
-//         // Vous pouvez utiliser les informations de l'utilisateur ici
-//     }
-// });

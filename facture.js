@@ -74,6 +74,14 @@ document.addEventListener("DOMContentLoaded", function () {
             row.style.display = found ? "table-row" : "none";
         });
     });
+    const factures = [
+        { Facture: 10, Laboratoire: 'Enval', Date: '29/12/2023' },
+        { Facture: 10, Laboratoire: 'Enval', Date: '29/12/2023' },
+        // Ajoutez d'autres factures au besoin
+    ];
+
+    // Ajoutez les lignes depuis le tableau JSON
+    ajouterLignesDepuisJSON(factures);
 });
 
 
@@ -87,3 +95,39 @@ if (!savedAvatarURL) {
     savedAvatarURL = '/images/prof.jpeg';
 }
 ptitprofImg.src = savedAvatarURL;
+
+function ajouterLigneAuTableau(facture) {
+    var table = document.querySelector(".table1");
+    var tbody = table.querySelector("tbody");
+
+    // Créez une nouvelle ligne
+    var newRow = document.createElement('tr');
+
+    // Ajoutez les cellules avec les données de la facture
+    Object.values(facture).forEach(function (valeur) {
+        var cellule = document.createElement('td');
+        cellule.textContent = valeur;
+        newRow.appendChild(cellule);
+    });
+
+    // Ajoutez un bouton "Voir"
+    var celluleVoir = document.createElement('td');
+    var voirButton = document.createElement('button');
+    voirButton.innerHTML = '<b>Voir</b>';
+    voirButton.addEventListener('click', function() {
+        // Ajoutez ici le code à exécuter lorsqu'on clique sur le bouton "Voir"
+        // Vous pouvez ouvrir une modal, afficher plus d'informations, etc.
+        alert('Voir la facture : ' + facture.Facture);
+    });
+    celluleVoir.appendChild(voirButton);
+    newRow.appendChild(celluleVoir);
+
+    // Ajoutez la nouvelle ligne au tableau
+    tbody.appendChild(newRow);
+}
+
+function ajouterLignesDepuisJSON(facturesJSON) {
+    facturesJSON.forEach(function (facture) {
+        ajouterLigneAuTableau(facture);
+    });
+}

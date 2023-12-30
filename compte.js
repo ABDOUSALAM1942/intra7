@@ -124,85 +124,27 @@ deconnexionButton.addEventListener('click', function() {
     deconnecterUtilisateur();
 });
 
+const suppCompte = document.querySelector('.supco');
+suppCompte.addEventListener('click', () => {
+    // Récupérer l'utilisateur actuellement connecté
+    const currentUser = JSON.parse(localStorage.getItem('currentUser'));
 
-// formulaire 
+    if (currentUser) {
+        // Marquer l'utilisateur comme supprimé dans le tableau users
+        const index = users.findIndex(u => u.email === currentUser.email);
+        if (index !== -1) {
+            // Après avoir marqué un utilisateur comme supprimé
+            users[index].deleted = true;
+            console.log('Tableau users mis à jour après suppression :', users);
+        }
 
+        // Supprimer les données de l'utilisateur du localStorage
+        localStorage.removeItem('currentUser');
+        localStorage.removeItem('currentUserPassword');
 
-// Écouter un événement, par exemple, un clic sur un bouton pour sauvegarder les données
-// var boutonEnregistrer = document.getElementById('enregistrer');
-// boutonEnregistrer.addEventListener('click', function() {
-//     // Récupérer les valeurs des inputs
-//     var nom = nomInput.value;
-//     var email = emailInput.value;
-//     var bio = bioTextarea.value;
+        // Mettre à jour le tableau users dans le localStorage avec les utilisateurs mis à jour
+        localStorage.setItem('users', JSON.stringify(users));
 
-//     // Stocker les données dans le local storage
-//     localStorage.setItem('nom', nom);
-//     localStorage.setItem('email', email);
-//     localStorage.setItem('bio', bio);
-// });
-
-
-// // Charger les données depuis le local storage lorsque la page se charge
-// window.addEventListener('load', function() {
-//     var nom = localStorage.getItem('nom');
-//     var email = localStorage.getItem('email');
-//     var bio = localStorage.getItem('bio');
-
-//     // Remplir les champs avec les données du local storage
-//     nomInput.value = nom;
-//     emailInput.value = email;
-//     bioTextarea.value = bio;
-// });
-
-// fin formulaire
-
-
-
-// // Sélectionnez le bouton "Modifier le mot de passe" à l'intérieur de la section "Modifier le profil"
-// var boutonModifierMotDePasse = document.querySelector('.mmdp');
-// var modal = document.getElementById('modal');
-// var closeModalButton = document.getElementById('close-modal');
-// var ancienMotDePasseInput = document.getElementById('ancienMotDePasse');
-// var nouveauMotDePasseInput = document.getElementById('nouveauMotDePasse');
-// var boutonModifierMotDePasseModal = document.getElementById('modifierMotDePasse');
-
-// // Ajoutez un gestionnaire d'événements au bouton "Modifier le mot de passe"
-// boutonModifierMotDePasse.addEventListener('click', function() {
-//     // Affichez la fenêtre modale
-//     modal.style.display = 'block';
-// });
-
-// // Ajoutez un gestionnaire d'événements au bouton de fermeture de la fenêtre modale
-// closeModalButton.addEventListener('click', function() {
-//     // Fermez la fenêtre modale
-//     modal.style.display = 'none';
-// });
-
-
-// boutonModifierMotDePasseModal.addEventListener('click', function(event) {
-//     // Récupérez le mot de passe stocké dans le localStorage
-// var motDePasseStocke = localStorage.getItem('motDePasseParDefaut');
-//   event.preventDefault(); // Empêche la soumission du formulaire par défaut
-//   // Récupérez l'ancien mot de passe saisi par l'utilisateur
-//   var ancienMotDePasse = ancienMotDePasseInput.value;
-//   // Vérifiez si l'ancien mot de passe saisi correspond au mot de passe stocké
-//   if (ancienMotDePasse === motDePasseStocke) {
-//       // Le mot de passe est correct, vous pouvez maintenant procéder à la modification
-//       // Récupérez le nouveau mot de passe saisi par l'utilisateur
-//       var nouveauMotDePasse = nouveauMotDePasseInput.value;
-//       // Vérifiez si le nouveau mot de passe est valide
-//       if (nouveauMotDePasse !== null && nouveauMotDePasse !== "") {
-//           // Stockez le nouveau mot de passe dans le localStorage
-//           localStorage.setItem('motDePasseParDefaut', nouveauMotDePasse);
-//           alert("Le mot de passe a été modifié avec succès !");
-//           // Fermez la fenêtre modale
-//           modal.style.display = 'none';
-//       }
-//   } else {
-//       alert("L'ancien mot de passe est incorrect. Veuillez réessayer.");
-//   }
-// });
-
-
-
+        window.location.replace('index.html');
+    }
+});

@@ -74,6 +74,14 @@ document.addEventListener("DOMContentLoaded", function () {
             sortTable(index);
         });
     });
+
+    const suivis = [
+        { Lot: 'TE2023030', État: 'Réçu', 'Date prévue': '12/03/2023', Rapport: 'Disponible' },
+        // Ajoutez d'autres suivis au besoin
+    ];
+
+    // Ajoutez les lignes depuis le tableau JSON
+    ajouterLignesSuiviDepuisJSON(suivis);
 });
 
 
@@ -92,3 +100,35 @@ ptitprofImg.src = savedAvatarURL;
 
 
 
+function ajouterLigneSuiviAuTableau(suivi) {
+    var table = document.querySelector(".table3");
+    var tbody = table.querySelector("tbody");
+
+    // Créez une nouvelle ligne
+    var newRow = document.createElement('tr');
+
+    // Ajoutez les cellules avec les données du suivi
+    Object.values(suivi).forEach(function (valeur) {
+        var cellule = document.createElement('td');
+        cellule.textContent = valeur;
+        newRow.appendChild(cellule);
+    });
+
+    // Ajoutez un bouton "Voir"
+    var celluleVoir = document.createElement('td');
+    var voirButton = document.createElement('button');
+    voirButton.innerHTML = '<b>Voir</b>';
+    voirButton.addEventListener('click', function() {
+        window.location.href = "suividetaille.html";        // Vous pouvez ouvrir une modal, afficher plus d'informations, etc.
+    });
+    celluleVoir.appendChild(voirButton);
+    newRow.appendChild(celluleVoir);
+
+    // Ajoutez la nouvelle ligne au tableau
+    tbody.appendChild(newRow);
+}
+function ajouterLignesSuiviDepuisJSON(suivisJSON) {
+    suivisJSON.forEach(function (suivi) {
+        ajouterLigneSuiviAuTableau(suivi);
+    });
+}

@@ -66,6 +66,11 @@ document.addEventListener("DOMContentLoaded", function () {
             row.style.display = found ? "table-row" : "none";
         });
     });
+    const commandes = [
+        { Commande: '0010', Laboratoire: 'Enval', Date: '10/03/2023', Statut: 'En cours' },
+        // Ajoutez d'autres commandes au besoin
+    ];
+    ajouterLignesCommandeDepuisJSON(commandes);
 });
 
 
@@ -78,3 +83,39 @@ if (!savedAvatarURL) {
     savedAvatarURL = '/images/prof.jpeg';
 }
 ptitprofImg.src = savedAvatarURL;
+
+function ajouterLigneCommandeAuTableau(commande) {
+    var table = document.querySelector(".table2");
+    var tbody = table.querySelector("tbody");
+
+    // Créez une nouvelle ligne
+    var newRow = document.createElement('tr');
+
+    // Ajoutez les cellules avec les données de la commande
+    Object.values(commande).forEach(function (valeur) {
+        var cellule = document.createElement('td');
+        cellule.textContent = valeur;
+        newRow.appendChild(cellule);
+    });
+
+    // Ajoutez un bouton "Voir"
+    var celluleVoir = document.createElement('td');
+    var voirButton = document.createElement('button');
+    voirButton.innerHTML = '<b>Voir</b>';
+    voirButton.addEventListener('click', function() {
+        // Ajoutez ici le code à exécuter lorsqu'on clique sur le bouton "Voir"
+        // Vous pouvez ouvrir une modal, afficher plus d'informations, etc.
+        alert('Voir la commande : ' + commande.Commande);
+    });
+    celluleVoir.appendChild(voirButton);
+    newRow.appendChild(celluleVoir);
+
+    // Ajoutez la nouvelle ligne au tableau
+    tbody.appendChild(newRow);
+}
+
+function ajouterLignesCommandeDepuisJSON(commandesJSON) {
+    commandesJSON.forEach(function (commande) {
+        ajouterLigneCommandeAuTableau(commande);
+    });
+}
